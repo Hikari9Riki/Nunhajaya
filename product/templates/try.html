@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Catalog</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .catalog {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .product-box {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+            max-width: 300px;
+        }
+
+        .product-image {
+            width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+        }
+
+        .product-name {
+            font-weight: bold;
+            margin: 5px 0;
+        }
+
+        .product-price {
+            color: green;
+            margin: 5px 0;
+        }
+
+        .product-description {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="catalog">
+        <div class="product-box">
+            <img class="product-image" src="media/product_images/WhatsApp_Image_2023-07-15_at_22.09.05.jpg" alt="Product 1">
+            <div class="product-name">Product 1</div>
+            <div class="product-price">$19.99</div>
+            <div class="product-description">This is the description of Product 1.</div>
+        </div>
+
+        <div class="product-box">
+            <img class="product-image" src="product2.jpg" alt="Product 2">
+            <div class="product-name">Product 2</div>
+            <div class="product-price">$29.99</div>
+            <div class="product-description">This is the description of Product 2.</div>
+        </div>
+
+        <!-- Add more product boxes here -->
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+
+{% extends template%}
+{% block content %}
+<div class="category-buttons">
+    <button class="category-button" onclick="window.location.href = '{% url 'category' 0 %}'">Creampuff</button>
+    <button class="category-button" onclick="window.location.href = '{% url 'category' 1 %}'">Chesse Tart</button>
+    <button class="category-button" onclick="window.location.href = '{% url 'category' 2 %}'">Combo</button>
+    <button class="category-button" onclick="window.location.href = '{% url 'category' 3 %}'">Cake</button>
+    <button class="category-button" onclick="window.location.href = '{% url 'category' 4 %}'">Brownish</button>
+</div>
+{% if products %}
+<div class="catalog">
+    {% for product in products %}
+    <div class="product-box">
+        <div class="product-name">{{ product.name }}</div>
+        <img class="product-image" src="{{ product.image.url }}" alt="{{ product.name }}">
+        <div class="product-price">RM {{ product.price }}</div>
+        <div class="product-description">{{ product.description }}</div>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<div class="catalog">
+    <p>Product not found!</p>
+</div>
+{% endif %}
+{%endblock%}
