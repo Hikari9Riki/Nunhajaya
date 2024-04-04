@@ -2,15 +2,17 @@
 {% extends template%}
 {% block content %}
 <div class="category-buttons">
-    <button class="category-button" onclick="window.location.href = '{% url 'category' 0 %}'">Creampuff</button>
-    <button class="category-button" onclick="window.location.href = '{% url 'category' 1 %}'">Chesse Tart</button>
-    <button class="category-button" onclick="window.location.href = '{% url 'category' 2 %}'">Combo</button>
-    <button class="category-button" onclick="window.location.href = '{% url 'category' 3 %}'">Cake</button>
-    <button class="category-button" onclick="window.location.href = '{% url 'category' 4 %}'">Brownish</button>
+    <button class="category-button" onclick="showCategory('category1')">Creampuff</button>
+    <button class="category-button" onclick="showCategory('category2')">Chesse Tart</button>
+    <button class="category-button" onclick="showCategory('category3')">Combo</button>
+    <button class="category-button" onclick="showCategory('category4')">Cake</button>
+    <button class="category-button" onclick="showCategory('category5')">Brownish</button>
 </div>
-{% if products %}
+
+<div id="category1" class="category">
+{% if one_products %}
 <div class="catalog">
-    {% for product in products %}
+    {% for product in one_products %}
     <div class="product-box">
         <div class="product-name">{{ product.name }}</div>
         <img class="product-image" src="{{ product.image.url }}" alt="{{ product.name }}">
@@ -24,4 +26,82 @@
     <p>Product not found!</p>
 </div>
 {% endif %}
+</div>
+
+<div id="category2" class="category">
+{% if second_products %}
+<div class="catalog">
+    {% for product in second_products %}
+    <div class="product-box">
+        <div class="product-name">{{ product.name }}</div>
+        <img class="product-image" src="{{ product.image.url }}" alt="{{ product.name }}">
+        <div class="product-price">RM {{ product.price }}</div>
+        <div class="product-description">{{ product.description }}</div>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<div class="catalog">
+    <p>Product not found!</p>
+</div>
+{% endif %}
+</div>
+
+<div id="category3" class="category">
+{% if third_products %}
+<div class="catalog">
+    {% for product in third_products %}
+    <div class="product-box">
+        <div class="product-name">{{ product.name }}</div>
+        <img class="product-image" src="{{ product.image.url }}" alt="{{ product.name }}">
+        <div class="product-price">RM {{ product.price }}</div>
+        <div class="product-description">{{ product.description }}</div>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<div class="catalog">
+    <p>Product not found!</p>
+</div>
+{% endif %}
+</div>
+
+<div id="category4" class="category">
+{% if forth_products %}
+<div class="catalog">
+    {% for product in forth_products %}
+    <div class="product-box">
+        <div class="product-name">{{ product.name }}</div>
+        <img class="product-image" src="{{ product.image.url }}" alt="{{ product.name }}">
+        <div class="product-price">RM {{ product.price }}</div>
+        <div class="product-description">{{ product.description }}</div>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<div class="catalog">
+    <p>Product not found!</p>
+</div>
+{% endif %}
+</div>
+
+<div id="category5" class="category">
+{% if fifith_products %}
+<div class="catalog">
+    {% for product in fifth_products %}
+    <div class="product-box">
+        <div class="product-name">{{ product.name }}</div>
+        <img class="product-image" src="{{ product.image.url }}" alt="{{ product.name }}">
+        <div class="product-price">RM {{ product.price }}</div>
+        <div class="product-description">{{ product.description }}</div>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<div class="catalog">
+    <p>Product not found!</p>
+</div>
+{% endif %}
+</div>
+
 {%endblock%}

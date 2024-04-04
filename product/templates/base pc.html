@@ -76,6 +76,10 @@
             background-color: #45a049;
         }
 
+        .category {
+            display: flex;
+            justify-content: center;
+        }
 
         .catalog {
             display: flex;
@@ -137,5 +141,20 @@
         <p>&copy; 2023 My Web Page. All rights reserved.</p>
     </footer>
 
+    <script>
+        function showCategory(categoryId) {
+          // Hide all categories
+          var categories = document.querySelectorAll('.category');
+          categories.forEach(function(category) {
+            category.style.display = 'none';
+          });
+          
+          // Show the selected category
+          var selectedCategory = document.getElementById(categoryId);
+          if (selectedCategory) {
+            selectedCategory.style.display = 'block';
+          }
+        }
+        </script>
 </body>
 </html>
