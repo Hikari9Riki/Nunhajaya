@@ -17,23 +17,20 @@ def catalog(request):
     else:
         # User is accessing from a computer
         request.session['extend'] = 'base pc.html'
-    if 'product' in request.session:
-        try:
-            products = Product.objects.filter(category=request.session.get('product'))
-        except Product.DoesNotExist:
-            products = None
-        template = request.session.get('extend')
-        context = {
-        'products': products,
+    
+    template = request.session.get('extend')
+    one_products = Product.objects.filter(category=0)
+    second_products = Product.objects.filter(category=1)
+    third_products = Product.objects.filter(category=2)
+    forth_products = Product.objects.filter(category=3)
+    fifth_products = Product.objects.filter(category=4)
+    context = {
+        'one_products': one_products,
+        'second_products': second_products,
+        'third_products': third_products,
+        'forth_products': forth_products,
+        'fifth_products': fifth_products,
         'template': template
-        }
-        return render(request, "catalog.html", context)
-    else:
-        template = request.session.get('extend')
-        products = Product.objects.all()
-        context = {
-            'products': products,
-            'template': template
     }
     return render(request, "catalog.html", context)
 
