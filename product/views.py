@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import Product
 from django_mobileesp import mdetect
 
@@ -17,15 +17,27 @@ def catalog(request):
     else:
         # User is accessing from a computer
         request.session['extend'] = 'base pc.html'
-    
-    template = request.session.get('extend')
-    products = Product.objects.all()
-    context = {
+    if 'product' in request.session:
+        try:
+            products = Product.objects.filter(category=request.session.get('product'))
+        except Product.DoesNotExist:
+            products = None
+        template = request.session.get('extend')
+        context = {
         'products': products,
         'template': template
+        }
+        return render(request, "catalog.html", context)
+    else:
+        template = request.session.get('extend')
+        products = Product.objects.all()
+        context = {
+            'products': products,
+            'template': template
     }
     return render(request, "catalog.html", context)
 
+'''
 def category(request, category_id):
     try:
         products = Product.objects.filter(category=category_id)
@@ -38,6 +50,13 @@ def category(request, category_id):
         'template': template
     }
     return render(request, "catalog.html", context)
+'''
+
+def category(request, category_id):
+
+
+    request.session['product'] = category_id
+    return redirect('catalog')
 
 def Cuba(request):
     return render(request,"try.html")
