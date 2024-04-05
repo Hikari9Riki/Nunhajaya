@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from product.views import catalog,category, Cuba, gpt
+from product.views import catalog,category, Cuba, gpt,eco
 from account.views import register
 from django.conf import settings
 from django.conf.urls.static import static
@@ -27,6 +27,7 @@ urlpatterns = [
     path('category/<int:category_id>/', category, name='category'),
     path('try', Cuba, name='Cuba'),
     path('gpt/', gpt, name='home'),
+    path('eco/', eco, name='eco'),
     path('register/', register, name='register'),
 ]
 

@@ -60,3 +60,6 @@ def Cuba(request):
 
 def gpt(request):
     return render(request,"gpt.html")
+
+def eco(request):
+    return render(request,"eco.html")
